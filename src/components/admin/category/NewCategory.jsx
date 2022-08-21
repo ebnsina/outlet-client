@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+
 import { createCategory } from "../../../services/category";
 
-export default function NewCategory({ setCategoryFormIsShow }) {
+export default function NewCategory({ setFormIsShow }) {
   const { user } = useSelector((state) => ({ ...state }));
   const [title, setTitle] = useState("");
 
@@ -39,7 +40,7 @@ export default function NewCategory({ setCategoryFormIsShow }) {
 
         <div className="grid grid-cols-2 gap-8">
           <button
-            onClick={() => setCategoryFormIsShow(false)}
+            onClick={() => setFormIsShow(false)}
             className="bg-gray-100 rounded-xl"
             type="button"
           >

@@ -28,6 +28,7 @@ import CouponPage from "./pages/admin/coupon";
 import SubcategoryPage from "./pages/admin/subcategory";
 import ProductPage from "./pages/admin/product";
 import EditCategory from "./components/admin/category/EditCategory";
+import EditSubcategory from "./components/admin/subcategory/EditSubcategory";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -60,16 +61,15 @@ export default function App() {
       <Header />
       <Switch>
         <AdminRoute path="/admin/orders" component={OrderPage} />
-
         <AdminRoute path="/admin/coupons" component={CouponPage} />
-
+        <AdminRoute
+          path="/admin/subcategories/:slug"
+          component={EditSubcategory}
+        />
         <AdminRoute path="/admin/subcategories" component={SubcategoryPage} />
-
         <AdminRoute path="/admin/categories/:slug" component={EditCategory} />
         <AdminRoute path="/admin/categories" component={CategoryPage} />
-
         <AdminRoute path="/admin/products" component={ProductPage} />
-
         <AdminRoute path="/admin/dashboard" component={Dashboard} />
 
         <UserRoute path="/user/wishlist" component={WishlistPage} />

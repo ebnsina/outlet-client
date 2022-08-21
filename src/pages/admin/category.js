@@ -6,7 +6,7 @@ import AdminNavigation from "../../components/layouts/AdminNavigation";
 import Layout from "../../components/layouts/Layout";
 
 export default function CategoryPage() {
-  const [categoryFormIsShow, setCategoryFormIsShow] = useState(false);
+  const [formIsShow, setFormIsShow] = useState(false);
 
   return (
     <div>
@@ -16,10 +16,10 @@ export default function CategoryPage() {
         </div>
 
         <main className="flex-1 p-4">
-          {categoryFormIsShow && (
+          {formIsShow && (
             <NewCategory
-              categoryFormIsShow={categoryFormIsShow}
-              setCategoryFormIsShow={setCategoryFormIsShow}
+              formIsShow={formIsShow}
+              setFormIsShow={setFormIsShow}
             />
           )}
 
@@ -28,7 +28,7 @@ export default function CategoryPage() {
 
             <button
               className="bg-gray-800 text-white rounded-xl px-4 py-2"
-              onClick={() => setCategoryFormIsShow(true)}
+              onClick={() => setFormIsShow(true)}
               type="button"
             >
               Add New

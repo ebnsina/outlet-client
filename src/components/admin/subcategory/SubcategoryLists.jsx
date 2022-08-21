@@ -4,16 +4,30 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { deleteCategory, getCategories } from "../../../services/category";
+import {
+  deleteSubcategory,
+  getSubcategories,
+} from "../../../services/subcategory";
 import FilterSearch from "../../search/FilterSearch";
 
-export default function CategoryLists() {
+export default function SubcategoryLists() {
   const { user } = useSelector((state) => ({ ...state }));
+  const [subcategories, setSubcategories] = useState([]);
   const [categories, setCategories] = useState([]);
 
   const [query, setQuery] = useState("");
-  const filteredLists = categories.filter((item) =>
-    item.title.includes(query.toLowerCase())
-  );
+  const filteredLists = subcategories.filter((item) => {
+    return item.title.toLowerCase().includes(query.toLowerCase());
+  });
+
+  const fetchSubategories = async () => {
+    try {
+      const { data } = await getSubcategories();
+      setSubcategories(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const fetchCategories = async () => {
     try {
@@ -26,12 +40,13 @@ export default function CategoryLists() {
 
   useEffect(() => {
     fetchCategories();
+    fetchSubategories();
   }, []);
 
   const handleDelete = async (slug) => {
     try {
       if (window.confirm("Are you sure to delete?")) {
-        const { data } = await deleteCategory(slug, user?.token);
+        const { data } = await deleteSubcategory(slug, user?.token);
         toast.success(data.message);
       }
     } catch (error) {
@@ -60,7 +75,7 @@ export default function CategoryLists() {
               <div>{c.slug}</div>
               <div className="space-x-3">
                 <Link
-                  to={`/admin/categories/${c.slug}`}
+                  to={`/admin/subcategories/${c.slug}`}
                   className="text-violet-500"
                 >
                   Edit

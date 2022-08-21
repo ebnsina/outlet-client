@@ -5,7 +5,7 @@ export default function WishlistPage() {
   return (
     <div>
       <Layout className="flex gap-10">
-        <div className="w-80">
+        <div className="w-48">
           <UserNavigation />
         </div>
 

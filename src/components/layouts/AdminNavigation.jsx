@@ -1,12 +1,15 @@
 import { NavLink } from "react-router-dom";
 
 const userNavData = [
-  { id: "un1", text: "History", to: "/user/history" },
-  { id: "un2", text: "Password", to: "/user/password" },
-  { id: "un3", text: "Wishlist", to: "/user/wishlist" },
+  { id: "an1", text: "Dashboard", to: "/admin/dashboard" },
+  { id: "an2", text: "Products", to: "/admin/products" },
+  { id: "an3", text: "Categories", to: "/admin/categories" },
+  { id: "an4", text: "Subcategories", to: "/admin/subcategories" },
+  { id: "an5", text: "Coupon", to: "/admin/coupons" },
+  { id: "an6", text: "Orders", to: "/admin/orders" },
 ];
 
-export default function UserNavigation() {
+export default function AdminNavigation() {
   return (
     <nav className="p-4">
       <ul className="space-y-3">

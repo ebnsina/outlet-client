@@ -7,6 +7,10 @@ body {
 @tailwind utilities;
 
 @layer base {
+  .active {
+    @apply bg-gray-900 text-white;
+  }
+
   [type="text"],
   [type="email"],
   [type="url"],
@@ -25,8 +29,8 @@ body {
     @apply w-full rounded-lg border-gray-200 focus:border-cyan-300 focus:ring-cyan-400;
   }
 
-  [type="checkbox"]`,
-  `[type="radio"] {
+  [type="checkbox"],
+  [type="radio"] {
     @apply border-gray-300 text-cyan-600 focus:ring-cyan-500;
   }
 

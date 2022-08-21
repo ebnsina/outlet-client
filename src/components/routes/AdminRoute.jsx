@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 
 import { getCurrentAdmin } from "../../services/auth";
 import LoadingToRedirect from "../ui/LoadingToRedirect";
@@ -25,9 +25,27 @@ export default function AdminRoute({ children, ...rest }) {
     fetchCurrentAdmin();
   }, []);
 
-  return isAdmin ? (
-    <Route {...rest} render={() => children} />
-  ) : (
-    <LoadingToRedirect />
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        isAdmin ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
   );
+
+  // return isAdmin ? (
+  //   <Route {...rest} render={() => children} />
+  // ) : (
+  //   <LoadingToRedirect />
+  // );
 }

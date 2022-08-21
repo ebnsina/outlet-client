@@ -11,7 +11,7 @@ export default function CartPage() {
             <p className="text-2xl font-semibold">Your cart is empty!</p>
           </div>
         </div>
-        <div className="w-80 bg-white p-4 rounded-xl shadow-sm">
+        <div className="w-48 bg-white p-4 rounded-xl shadow-sm">
           <h3 className="text-xl font-medium text-center">Order Summary</h3>
           <div>
             <div className="flex justify-between py-3">

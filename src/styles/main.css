@@ -5,3 +5,32 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    @apply w-full rounded-lg border-gray-200 focus:border-cyan-300 focus:ring-cyan-400;
+  }
+
+  [type="checkbox"]`,
+  `[type="radio"] {
+    @apply border-gray-300 text-cyan-600 focus:ring-cyan-500;
+  }
+
+  button[type="submit"] {
+    @apply bg-cyan-400 text-white hover:bg-cyan-500 focus:ring-1 focus:ring-cyan-500 px-4 py-2 rounded-lg w-full transition;
+  }
+}
